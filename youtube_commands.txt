@@ -50,12 +50,12 @@ create Oauth2.0 client id  and API key
 
 
 #AWS EC2 instance commands:
-    1	Open an SSH client.
-	2	Locate your private key file. The key used to launch this instance is airflow_ec2_key.pem
-	3	Run this command, if necessary, to ensure your key is not publicly viewable.
-	4	chmod 400 "airflow_ec2_key.pem"
-	5	Connect to your instance using its Public DNS:
-	6	ec2-X-YYY-ZZZ-ZX.ap-south-1.compute.amazonaws.com
+1	Open an SSH client.
+2	Locate your private key file. The key used to launch this instance is airflow_ec2_key.pem
+3	Run this command, if necessary, to ensure your key is not publicly viewable.
+4	chmod 400 "airflow_ec2_key.pem"
+5	Connect to your instance using its Public DNS:
+6	ec2-X-YYY-ZZZ-ZX.ap-south-1.compute.amazonaws.com
 0r ec2-XY-2XY-XY-XYZ.ap-south-1.compute.amazonaws.com
 Example:
 #Connect to EC2 instance
