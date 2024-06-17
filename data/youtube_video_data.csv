@@ -1,0 +1,17 @@
+,id,author,comment,published_at,like
+0,UgxvA-OXNOTSpB3ZwRp4AaABAg,@DarshilParmar,"EDIT:
+Elon Musk ruined the API part, you can use some other APIs
+
+Here's one of the subscriber built the same project using other APIs - https://chenmeiqiao.notion.site/How-I-Reach-Out-to-YouTubers-I-Like-As-A-Data-Engineer-c37bdddefde54c3789229ffa5a789432
+
+or you can use a static dataset from Kaggle and then use Airflow to process it
+https://www.kaggle.com/datasets/mmmarchetti/tweets-dataset
+
+FAQ:
+1. Twitter removed free access: It still has free access but with limits of requests you can make - https://developer.twitter.com/en/docs/twitter-api/getting-started/about-twitter-api
+
+2. You need to request for V2 access: You will get an error but just by reading the doc you should be able to access Elevated Access
+
+
+Worked very hard for this project🤞
+Don’t forget to hit the like button and if you want to support my work you can join channel membership, it's only 59rs per month so that I can keep these content for free",2022-09-20T12:06:19Z,93
