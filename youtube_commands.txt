@@ -1,0 +1,62 @@
+sudo apt-get update
+sudo apt install python3-pip
+
+# create python virtual env to avoid packages versions conflicts
+sudo apt install python3.10-venv
+sudo apt-get install libpq-dev
+python3 -m venv venv
+source venv/bin/activate
+
+# check for python version and airflow stable version to deploy on server
+pip install "apache-airflow[postgres]==2.9.2" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.9.2/constraints-3.12.txt"
+sudo pip install pandas
+pip install --upgrade google-api-python-client
+pip install --upgrade google-auth-oauthlib google-auth-httplib2
+sudo pip install s3fs
+sudo pip install tweepy
+sudo apt install sqlite3
+
+#commands for airflow 
+airflow standalone 
+OR
+
+airflow db init
+
+sudo apt-get install postgresql postgresql-contrib
+
+sudo -i -u postgres
+
+psql
+
+CREATE DATABASE airflow;
+CREATE USER airflow WITH PASSWORD 'airflow';
+GRANT ALL PRIVILEGES ON DATABASE airflow TO airflow;
+
+sed -i 's#sqlite:////home/ubuntu/airflow/airflow.db#postgresql+psycopg2://airflow:airflow@localhost/airflow#g' airflow.cfg
+
+sed -i 's#SequentialExecutor#LocalExecutor#g' airflow.cfg
+
+airflow db init
+
+airflow users create -u airflow -f airflow -l airflow -r Admin -e airflow@gmail.com
+
+airflow webserver &
+
+airflow scheduler
+
+
+#gotop https://console.cloud.google.com/
+create Oauth2.0 client id  and API key
+
+
+#AWS EC2 instance commands:
+    1	Open an SSH client.
+	2	Locate your private key file. The key used to launch this instance is airflow_ec2_key.pem
+	3	Run this command, if necessary, to ensure your key is not publicly viewable.
+	4	chmod 400 "airflow_ec2_key.pem"
+	5	Connect to your instance using its Public DNS:
+	6	ec2-X-YYY-ZZZ-ZX.ap-south-1.compute.amazonaws.com
+0r ec2-XY-2XY-XY-XYZ.ap-south-1.compute.amazonaws.com
+Example:
+#Connect to EC2 instance
+ssh -i "airflow_ec2_key.pem" ubuntu@ec2-X-YYY-ZZZ-XY.ap-south-1.compute.amazonaws.com
